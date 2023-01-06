@@ -40,4 +40,4 @@ void GoNext2( struct studentNode ***walk ) {
     if ((**walk)->next != NULL){
         *(**walk) = *(**walk)->next;
     }
-};
+};//end function
