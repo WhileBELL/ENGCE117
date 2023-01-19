@@ -9,7 +9,7 @@ int *a, b = 10, c = 20 ;
     go( &a, &c ) ;
     printf( "%d %p %p", *a, a, &a ) ;
     return 0 ;
-}//end function
+};//end function
 
 
 void go( int **p, int *z ){

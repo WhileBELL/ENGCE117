@@ -29,7 +29,7 @@ int main()
     GoNext1(now1);
     printf("%s ", now1->name);
     return 0;
-} // end function
+}; // end function
 
 void SaveNode(struct studentNode *child, char n[], int a, char s, float g)
 {
@@ -37,7 +37,7 @@ void SaveNode(struct studentNode *child, char n[], int a, char s, float g)
     child->age = a;
     child->sex = s;
     child->gpa = g;
-} // end function
+}; // end function
 
 void GoNext1(struct studentNode *walk)
 {

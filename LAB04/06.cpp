@@ -27,17 +27,17 @@ int main() {
     GoNext2( &now2 ) ; 
     printf( "%s ", (*now2)->name ) ;
     return 0 ;
-}//end function
+} ;//end function
 
 void SaveNode( struct studentNode *child, char n[], int a, char s, float g ) {
     strcpy( child->name, n ) ;
     child->age = a ;
     child->sex = s ;
     child->gpa = g ;
-}//end function
+} ;//end function
 
 void GoNext2( struct studentNode ***walk ) {
     if ((**walk)->next != NULL){
-        *(**walk) = *(**walk)->next;
+        *(**walk) = *(**walk)->next ;
     }
-};//end function
+} ;//end function

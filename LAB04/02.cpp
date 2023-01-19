@@ -11,7 +11,7 @@ int main() {
     go( &a, &c ) ;
     printf( "%d %p %p %p ", **a, *a, a, &a ) ;
     return 0 ;
-}//end function
+};//end function
 
 void go( int ***p, int **z ) {
     *p = z;
