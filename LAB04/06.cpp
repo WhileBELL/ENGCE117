@@ -30,7 +30,7 @@ int main() {
 } ;//end function
 
 void SaveNode( struct studentNode *child, char n[], int a, char s, float g ) {
-    strcpy( child->name, n ) ;
+    strcpy_s( child->name, n ) ;
     child->age = a ;
     child->sex = s ;
     child->gpa = g ;
