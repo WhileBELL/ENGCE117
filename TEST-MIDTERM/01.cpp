@@ -1,5 +1,6 @@
 // นาย ธีรภัทร กันทอง 65543206017-7 Section 1
-// Addnode Updatenode
+// https://github.com/WhileBELL/ENGCE117/tree/main/TEST-MIDTERM
+// https://youtu.be/cyIZeLly3h4
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
