@@ -54,8 +54,7 @@ void ShowBack(struct studentNode *walk) {
   printf("\n");
 }
 
-struct studentNode *AddNode(struct studentNode **node, char name[20], int age,
-                            char sex, float gpa) {
+struct studentNode *AddNode(struct studentNode **node, char name[20], int age, char sex, float gpa) {
   struct studentNode *temp = *node;
   struct studentNode *newnode = new struct studentNode;
   strcpy_s(newnode->name, name);
@@ -70,9 +69,9 @@ struct studentNode *AddNode(struct studentNode **node, char name[20], int age,
   }
   while (temp != NULL) {
     if (temp->next == NULL) {
-        break;
+      break;
     } else {
-        temp = temp->next;
+      temp = temp->next;
     }
   }
   newnode->back = temp;
@@ -81,7 +80,7 @@ struct studentNode *AddNode(struct studentNode **node, char name[20], int age,
 }
 
 void InsNode(struct studentNode *now, char name[20], int age, char sex, float gpa) {
-  now->back->next = new struct studentNode;
+  now->back->next = new struct studentNode; // Create another node on in front of node now
   strcpy_s(now->back->next->name, name);
   now->back->next->age = age;
   now->back->next->sex = sex;
@@ -92,18 +91,18 @@ void InsNode(struct studentNode *now, char name[20], int age, char sex, float gp
 }
 
 void GoBack(struct studentNode **node) {
-    *node = (*node)->back;
+  *node = (*node)->back; // Move now to another node
 }
 
-void DelNode(struct studentNode **node){
-    if ((*node)->next == NULL) {
-        (*node)->back->next = NULL;
-        delete *node;
-        *node = (*node)->back;
-        return;
-    }
-    (*node)->back->next = (*node)->next;
-    (*node)->next->back = (*node)->back;
+void DelNode(struct studentNode **node) {
+  if ((*node)->next == NULL) { // Check if next node is NULL or not
+    (*node)->back->next = NULL; // Change pointing of back->next to NULL
     delete *node;
-    *node = (*node)->next;
+    *node = (*node)->back;
+    return;
+  }
+  (*node)->back->next = (*node)->next; // Make the previous node->next point to the next node of current
+  (*node)->next->back = (*node)->back; // Make the posterior node->back point to the node before current node
+  delete *node;
+  *node = (*node)->next;
 }
