@@ -57,31 +57,30 @@ void ShowBack(struct studentNode *walk) {
 struct studentNode *AddNode(struct studentNode **node, char name[20], int age, char sex, float gpa) {
   struct studentNode *temp = *node;
   struct studentNode *newnode = new struct studentNode;
-  strcpy_s(newnode->name, name);
+  strcpy(newnode->name, name);
   newnode->age = age;
   newnode->sex = sex;
   newnode->gpa = gpa;
   newnode->next = NULL;
-  if (*node == NULL) {
+  if (*node == NULL) { // If current node is NULL set newnode to current node and newnode->back to NULL
     newnode->back = NULL;
     *node = newnode;
     return newnode;
   }
-  while (temp != NULL) {
-    if (temp->next == NULL) {
-      break;
-    } else {
-      temp = temp->next;
-    }
+  while (temp != NULL) { // To find node before the current node
+    if (temp->next == NULL) { // To check if it's NULL or not
+      break; // If it break out form while
+    } 
+    temp = temp->next; 
   }
-  newnode->back = temp;
-  temp->next = newnode;
+  newnode->back = temp; // Make newnode->back point to current node
+  temp->next = newnode; // Make current node->next point to newnode
   return newnode;
 }
 
 void InsNode(struct studentNode *now, char name[20], int age, char sex, float gpa) {
   now->back->next = new struct studentNode; // Create another node on in front of node now
-  strcpy_s(now->back->next->name, name);
+  strcpy(now->back->next->name, name);
   now->back->next->age = age;
   now->back->next->sex = sex;
   now->back->next->gpa = gpa;
